@@ -7,7 +7,7 @@ void menu();
 int main() {
 	int input, x, y;
 
-	//函数指针 数组
+	//鍑芥暟鎸囬拡 鏁扮粍
 	int (*pfArr[5])(int, int) = { 0, Add, Sub, Mul, Div };
 
 	menu();
