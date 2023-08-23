@@ -1,47 +1,41 @@
 #define _CRT_SECURE_NO_WARNINGS
 
-
-/*
-    ´úÂëÓĞµãÎÊÌâ
-*/
-
-
 #include<stdio.h>
 #define N 10
 
 void selectSort(int* arr, int len);
 void insertSort(int* arr, int len, int ins);
 
-//int main() {
-//    int arr[N] = { 0 }, i = 0, ins = 0;        //ins : insertion ²åÈë           index : Ë÷Òı
-//    printf("ÇëÊäÈë%d¸öÔªËØ\n", N - 1);
-//    for (i = 0; i < N - 1; i++) {
-//        scanf("%d", &arr[i]);
-//    }
-//
-//    //²åÈëÅÅĞòÒªÇóarrÊÇÓĞĞòµÄ
-//    selectSort(arr, N - 1);
-//
-//    printf("ÅÅĞòºóµÄÊı×éÎª:\n");
-//    for (i = 0; i < N - 1; i++) {
-//        printf("%d ", arr[i]);
-//    }
-//
-//    printf("\nÇëÊäÈëÒª²åÈëµÄÔªËØ:\n");
-//    scanf("%d", &ins);
-//
-//    insertSort(arr, N, ins);
-//
-//    printf("²åÈëºóµÄË³ĞòÎª:\n");
-//    for (i = 0; i < N; i++) {
-//        printf("%d ", arr[i]);
-//    }
-//
-//    return 0;
-//}
+int main() {
+    int arr[N] = { 0 }, i = 0, ins = 0;        //ins : insertion æ’å…¥           index : ç´¢å¼•
+    printf("è¯·è¾“å…¥%dä¸ªå…ƒç´ \n", N - 1);
+    for (i = 0; i < N - 1; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    //æ’å…¥æ’åºè¦æ±‚arræ˜¯æœ‰åºçš„
+    selectSort(arr, N - 1);
+
+    printf("æ’åºåçš„æ•°ç»„ä¸º:\n");
+    for (i = 0; i < N - 1; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    printf("\nè¯·è¾“å…¥è¦æ’å…¥çš„å…ƒç´ :\n");
+    scanf("%d", &ins);
+
+    insertSort(arr, N, ins);
+
+    printf("æ’å…¥åçš„é¡ºåºä¸º:\n");
+    for (i = 0; i < N; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
 
 void selectSort(int* arr, int len) {
-    int i = 0, j = 0, min = 0, temp = 0;         //temp : temporary ÁÙÊ±
+    int i = 0, j = 0, min = 0, temp = 0;         //temp : temporary ä¸´æ—¶
     for (i = 0; i < len - 1; i++) {
         min = i;
         for (j = i + 1; j < len; j++) {
@@ -50,7 +44,7 @@ void selectSort(int* arr, int len) {
             }
         }
         temp = arr[i];
-        arr[i] = arr[min];        //ÓÃmin²»ÓÃj£¬ÒòÎªj´ÓÉÏ¸öforÑ­»·¾ÍÒÑ¾­±ä³ÉÁËlenÁË
+        arr[i] = arr[min];        //ç”¨minä¸ç”¨jï¼Œå› ä¸ºjä»ä¸Šä¸ªforå¾ªç¯å°±å·²ç»å˜æˆäº†lenäº†
         arr[min] = temp;
     }
 }
@@ -68,8 +62,8 @@ void insertSort(int* arr, int len, int ins) {
         }
     }
 
-    for (i = len - 1; i >= index; i--) {
-        arr[i + 1] = arr[i];
+    for (i = len - 1; i > index; i--) {
+        arr[i] = arr[i - 1];
     }
     arr[index] = ins;
 }
